@@ -1,0 +1,26 @@
+$image = "flatcar_hyperv_4081.2.1.vhdx"
+$sshKey = "ssh-ed25519 <removed>"
+$smbUser = ""
+$smbPasswd = ""
+$smbDomain = ""
+$sysextVersion = "20250205"
+$sysextVersionSHA256 = "62717e99ddfa0fb89f87de9100a694ee3b493b96ddc60a75d5d95400121d2b38"
+$gateway = "192.0.2.1"
+$dnsDomainName = "hashistack4u.lab"
+$dnsServer1 = "1.1.1.1"
+$dnsServer2 = "8.8.8.8"
+$ConsulDatacenter = "dc1"
+$ConsulEncryptKey = ""
+
+$servers = [ordered]@{
+    "server-1" = "192.0.2.11"
+}
+
+# Azure MSI
+$AzureTenantID = "00000000-0000-0000-0000-000000000000"
+$AzureVaultName = ""
+$AzureVaultKeyName = ""
+
+# Extra parameter when using without MSI
+$AzureClientID = "00000000-0000-0000-0000-000000000000"
+$AzureClientSecret = ""

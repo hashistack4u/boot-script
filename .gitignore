@@ -1,0 +1,8 @@
+.settings.ps1
+*.exe
+*.json
+*.vhdx
+*.yaml
+certs/*
+!certs/.gitkeep
+dhcpsrv.ini

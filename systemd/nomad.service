@@ -1,0 +1,23 @@
+[Unit]
+Description=Nomad
+Documentation=https://www.nomadproject.io/docs
+Wants=network-online.target
+After=network-online.target
+ConditionDirectoryNotEmpty=/opt/hashistack/nomad/data
+
+[Service]
+ExecReload=/bin/kill -HUP $MAINPID
+EnvironmentFile=/etc/hashistack.env
+ExecStart=/usr/bin/nomad agent -server -config /etc/nomad.d/
+User=nomad
+Group=hashistack
+KillMode=process
+KillSignal=SIGINT
+LimitNOFILE=infinity
+LimitNPROC=infinity
+Restart=always
+RestartSec=2
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target
