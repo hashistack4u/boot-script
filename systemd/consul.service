@@ -3,7 +3,7 @@ Description="HashiCorp Consul - A service mesh solution"
 Documentation=https://www.consul.io/
 Requires=network-online.target
 After=network-online.target
-ConditionDirectoryNotEmpty=/opt/hashistack/consul
+ConditionFileNotEmpty=/etc/consul.d/cluster.hcl
 
 [Service]
 Type=notify

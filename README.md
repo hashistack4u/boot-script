@@ -14,6 +14,8 @@ To enable rapid development process, local Hyper-V virtual machines are used for
 * Environment specific settings are defined in dynamic configuration files and in environment variable file `/etc/hashistack.env`
 * Vault with [auto-unseal with Azure Key Vault](https://developer.hashicorp.com/vault/docs/configuration/seal/azurekeyvault).
 * Using condition `ConditionDirectoryNotEmpty=` / `ConditionFileNotEmpty` in systemd units to prevent services from starting until they are configured.
+* Use Consul as default DNS server.
+  * Use hosts file between servers to make sure that they can communicate with each others even when DNS resolutions are failing.
 
 # TODO
 ## Generic
@@ -62,4 +64,4 @@ Host 192.0.2.*
 
 ## Testing
 1. Create dev VMs by running script: `.\CreateVMs.ps1`
-2. SSH to nodes and run scripts from path `/mnt/bootscript/scripts/` in numbered order.
+2. SSH to nodes and run script `/mnt/bootscript/scripts/00_all.sh`

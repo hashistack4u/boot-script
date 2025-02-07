@@ -113,7 +113,7 @@ systemd:
         [Mount]
         What=//$gateway/bootScript$
         Where=/mnt/bootscript
-        Options=username=$smbUser,password=$smbPasswd,workgroup=$smbDomain,rw,uid=500,forceuid,gid=1000,forcegid
+        Options=username=$smbUser,password=$smbPasswd,workgroup=$smbDomain,rw,uid=500,gid=1000,dir_mode=0775,file_mode=0775
         Type=cifs
         [Install]
         WantedBy=multi-user.target

@@ -1,8 +1,7 @@
 SCRIPT_DIR=$(dirname "$0")
 
 if [ "${HOSTNAME: -1}" != "1" ]; then
-  echo "Please run this script in server number one"
-  exit 1
+  exit 0
 fi
 
 # Configure Vault
@@ -30,15 +29,15 @@ if [ ! -d "/opt/hashistack/tls" ]; then
 fi
 
 if [ ! -d "/opt/hashistack/vault/data" ]; then
-  sudo -i -u vault bash << 'EOF'
+  sudo -i -u vault env SCRIPT_DIR=$SCRIPT_DIR bash << 'EOF'
   set -a
   source /etc/hashistack.env
   mkdir -p /opt/hashistack/vault/data
   vault server -config=/mnt/bootscript/config/vault-init.hcl &
   VAULT_PID=$!
-  sleep 3s
+  sleep 30s
   export VAULT_SKIP_VERIFY=true
-  vault operator init -recovery-shares=1 -recovery-threshold=1 -format json
+  vault operator init -recovery-shares=1 -recovery-threshold=1 -format json > $SCRIPT_DIR/../certs/vault-init.json
   sleep 15s
   kill -s 3 $VAULT_PID
 EOF
