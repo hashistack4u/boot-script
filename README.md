@@ -64,6 +64,7 @@ Host 192.0.2.*
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
 ```
+6. It is also recommended to use local web server to host `hashistack.raw` so deployment is much faster.
 
 ## Testing
 1. Create dev VMs by running script: `.\CreateVMs.ps1`

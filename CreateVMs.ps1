@@ -97,7 +97,7 @@ storage:
           SERVER=disabled
     - path: /etc/extensions/hashistack.raw
       contents:
-        source: https://github.com/hashistack4u/sysext/releases/download/$sysextVersion/hashistack.raw
+        source: $sysextUrl
         verification:
           hash: sha256-$sysextVersionSHA256
   directories:
