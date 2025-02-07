@@ -10,6 +10,7 @@ To enable rapid development process, local Hyper-V virtual machines are used for
 * Hashistack sysext image
 * Shared "hashistack" group for all components.
 * Dedicated non-root user for each component.
+  * Except for Nomad because Docker driver requires root permissions. Look [hashicorp/nomad#1366](https://github.com/hashicorp/nomad/issues/13669)
 * Most of the settings in static configuration files.
 * Environment specific settings are defined in dynamic configuration files and in environment variable file `/etc/hashistack.env`
 * Vault with [auto-unseal with Azure Key Vault](https://developer.hashicorp.com/vault/docs/configuration/seal/azurekeyvault).

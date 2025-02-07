@@ -8,8 +8,8 @@ ConditionDirectoryNotEmpty=/opt/hashistack/nomad/data
 [Service]
 ExecReload=/bin/kill -HUP $MAINPID
 EnvironmentFile=/etc/hashistack.env
-ExecStart=/usr/bin/nomad agent -server -config /etc/nomad.d/
-User=nomad
+ExecStart=/usr/bin/nomad agent -$NOMAD_ROLE -config /etc/nomad.d/ -dc $CONSUL_DATACENTER $NOMAD_EXTRA_PARAM
+User=root
 Group=hashistack
 KillMode=process
 KillSignal=SIGINT
