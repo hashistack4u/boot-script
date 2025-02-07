@@ -39,20 +39,15 @@ storage:
       mode: 0644
       contents:
         inline: $hostname
-    - path: /etc/systemd/network/00-eth0.network
+    - path: /etc/resolv.conf
+      overwrite: true
       mode: 0644
       contents:
         inline: |
-          [Match]
-          Name=eth0
-          [Network]
-          DHCP=yes
-          DNS=127.0.0.53
-          DNS=$dnsServer1
-          DNS=$dnsServer2
-          Domains=$dnsDomainName
-          LinkLocalAddressing=no
-          IPv6AcceptRA=no
+          nameserver 127.0.0.53
+          nameserver $dnsServer1
+          nameserver $dnsServer2
+          search $dnsDomainName
     - path: /etc/hosts
       overwrite: true
       mode: 0644
@@ -83,13 +78,6 @@ storage:
           # FixMe: We should not need these
           AZURE_CLIENT_ID=$AzureClientID
           AZURE_CLIENT_SECRET=$AzureClientSecret
-    - path: /etc/systemd/resolved.conf
-      overwrite: true
-      mode: 0644
-      contents:
-        inline: |
-          [Resolve]
-          DNSStubListener=false
     - path: /etc/sysctl.d/90-unprivileged.conf
       mode: 0644
       contents:
@@ -114,6 +102,8 @@ storage:
         name: hashistack
 systemd:
   units:
+    - name: systemd-resolved.service
+      mask: true
     - name: mnt-bootscript.mount
       enabled: true
       contents: |
