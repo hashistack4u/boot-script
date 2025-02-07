@@ -1,4 +1,8 @@
+[DNS-Settings]
+EnableDNS=1
+FORWARD=1.1.1.1
 [General]
+DOMAINNAME=hashistack4u.lab
 SUBNETMASK=255.255.255.0
 LEASETIME=300
 ROUTER_1=192.0.2.1
@@ -8,10 +12,13 @@ IPBIND_1=192.0.2.1
 IPPOOL_1=192.0.2.100-200
 [00-15-5D-00-00-11]
 Hostname=server-1
+AllowDNSQuery=1
 IPADDR=192.0.2.11
 [00-15-5D-00-00-12]
 Hostname=server-2
+AllowDNSQuery=1
 IPADDR=192.0.2.12
 [00-15-5D-00-00-13]
 Hostname=server-3
+AllowDNSQuery=1
 IPADDR=192.0.2.13

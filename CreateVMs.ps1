@@ -48,15 +48,6 @@ storage:
           nameserver $dnsServer1
           nameserver $dnsServer2
           search $dnsDomainName
-    - path: /etc/hosts
-      overwrite: true
-      mode: 0644
-      contents:
-        inline: |
-          127.0.0.1 localhost
-          192.0.2.11 server-1.$dnsDomainName server-1
-          192.0.2.12 server-2.$dnsDomainName server-2
-          192.0.2.13 server-3.$dnsDomainName server-3
     - path: /etc/hashistack.env
       mode: 0640
       group:
