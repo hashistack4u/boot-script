@@ -28,6 +28,8 @@ passwd:
       primary_group: hashistack
     - name: nomad
       primary_group: hashistack
+      groups:
+        - docker
     - name: vault
       primary_group: hashistack
     - name: loki
@@ -66,9 +68,12 @@ storage:
           AZURE_TENANT_ID=$AzureTenantID
           CONSUL_DATACENTER=$ConsulDatacenter
           CONSUL_ENCRYPT_KEY=$ConsulEncryptKey
+          CONSUL_EXTRA_PARAM="-bind=$IP"
           DNS_DOMAIN_NAME=$dnsDomainName
           DNS_SERVER1=$dnsServer1
           DNS_SERVER2=$dnsServer2
+          NOMAD_EXTRA_PARAM="-bind=$IP -meta=server=true"
+          NOMAD_ROLE=server
           VAULT_AZUREKEYVAULT_VAULT_NAME=$AzureVaultName
           VAULT_AZUREKEYVAULT_KEY_NAME=$AzureVaultKeyName
           VAULT_API_ADDR=https://$hostname.$($dnsDomainName):8200

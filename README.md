@@ -31,6 +31,8 @@ To enable rapid development process, local Hyper-V virtual machines are used for
 * Use FQDN names in cluster configuration
 * Store root token and recovery keys to Azure Key Vault
 
+## Nomad
+* Enable TLS for HTTP after [hashicorp/nomad#25020](https://github.com/hashicorp/nomad/issues/25020) is fixed.
 
 # Development
 ## Configuring development environment

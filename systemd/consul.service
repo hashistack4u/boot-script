@@ -10,7 +10,7 @@ Type=notify
 EnvironmentFile=/etc/hashistack.env
 User=consul
 Group=hashistack
-ExecStart=/usr/bin/consul agent -config-dir=/etc/consul.d/ -datacenter $CONSUL_DATACENTER -encrypt $CONSUL_ENCRYPT_KEY -recursor $DNS_SERVER1 -recursor $DNS_SERVER2
+ExecStart=/usr/bin/consul agent -config-dir=/etc/consul.d/ -datacenter $CONSUL_DATACENTER -encrypt $CONSUL_ENCRYPT_KEY -recursor $DNS_SERVER1 -recursor $DNS_SERVER2 $CONSUL_EXTRA_PARAM
 ExecReload=/bin/kill --signal HUP $MAINPID
 KillMode=process
 KillSignal=SIGTERM
