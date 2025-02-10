@@ -138,10 +138,9 @@ systemd:
     butane.exe --strict ".\ignition.yaml" -o ".\ignition.json"
     if ($? -ne $true) { throw "Butane failed" }
 
-    New-VHD -ParentPath "$PSScriptRoot\$image" -Path "$PSScriptRoot\$vmName.vhdx" -Differencing
-    New-VM -Name $vmName -SwitchName "hashistack4u" -MemoryStartupBytes 2048MB -VHDPath "$PSScriptRoot\$vmName.vhdx" -Generation 2
-    Set-VMMemory -VMName $vmName -DynamicMemoryEnabled $true
-    Set-VMProcessor -VMName $vmName -Count 4
+    New-VHD -ParentPath "$PSScriptRoot\$image" -Path "$PSScriptRoot\$vmName.vhdx" -Differencing -SizeBytes 20GB
+    New-VM -Name $vmName -SwitchName "hashistack4u" -MemoryStartupBytes 6GB -VHDPath "$PSScriptRoot\$vmName.vhdx" -Generation 2
+    Set-VMProcessor -VMName $vmName -Count 8
     Set-VMFirmware -EnableSecureBoot "Off" -VMName $vmName
 
     # Use static MAC address for server nodes
