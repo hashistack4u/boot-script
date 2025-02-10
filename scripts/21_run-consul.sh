@@ -31,5 +31,5 @@ sudo -i -u consul bash << 'EOF'
 set -a
 source /etc/hashistack.env
 mkdir -p /opt/hashistack/consul
-# consul agent -config-dir=/etc/consul.d/ -datacenter $CONSUL_DATACENTER -encrypt $CONSUL_ENCRYPT_KEY -recursor $DNS_SERVER1 -recursor $DNS_SERVER2
+# consul agent -config-dir=/etc/consul.d/ -datacenter $CONSUL_DATACENTER -encrypt $CONSUL_ENCRYPT_KEY -recursor $DNS_SERVER1 -recursor $DNS_SERVER2 $CONSUL_EXTRA_PARAM
 EOF

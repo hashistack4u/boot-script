@@ -69,6 +69,8 @@ storage:
           CONSUL_DATACENTER=$ConsulDatacenter
           CONSUL_ENCRYPT_KEY=$ConsulEncryptKey
           CONSUL_EXTRA_PARAM="-bind=$IP"
+          CONSUL_HTTP_ADDR=$hostname.$($dnsDomainName):8501
+          CONSUL_HTTP_SSL=true
           DNS_DOMAIN_NAME=$dnsDomainName
           DNS_SERVER1=$dnsServer1
           DNS_SERVER2=$dnsServer2

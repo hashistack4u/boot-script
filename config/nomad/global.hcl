@@ -1,7 +1,7 @@
 data_dir = "/opt/hashistack/nomad/data"
 
 tls {
-  http = false
+  http = true
   rpc = true
   ca_file = "/opt/hashistack/tls/client.crt"
   cert_file = "/opt/hashistack/tls/client.crt"

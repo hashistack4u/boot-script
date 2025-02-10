@@ -3,7 +3,7 @@ Description=Nomad
 Documentation=https://www.nomadproject.io/docs
 Wants=network-online.target
 After=network-online.target
-ConditionDirectoryNotEmpty=/opt/hashistack/nomad/data
+ConditionFileNotEmpty=/etc/nomad.d/cluster.hcl
 
 [Service]
 ExecReload=/bin/kill -HUP $MAINPID
