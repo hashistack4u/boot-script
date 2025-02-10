@@ -1,5 +1,6 @@
 client {
   enabled = true
+  cni_path = "/usr/lib/cni"
 
   drain_on_shutdown {
     deadline = "5m"
