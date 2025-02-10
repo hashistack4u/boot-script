@@ -1,0 +1,20 @@
+{
+  "cniVersion": "1.0.0",
+  "name": "custom-bridge",
+  "plugins": [
+    {
+        "cniVersion": "0.3.1",
+        "name": "custom-bridge",
+        "type": "bridge",
+        "bridge": "mynet0",
+        "isDefaultGateway": true,
+        "forceAddress": false,
+        "ipMasq": true,
+        "hairpinMode": true,
+        "ipam": {
+            "type": "host-local",
+            "subnet": "10.10.0.0/16"
+        }
+    }
+  ]
+}
