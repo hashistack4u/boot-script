@@ -27,9 +27,11 @@ sudo chown -R nomad:hashistack /etc/nomad.d/
 sudo chmod 0750 /etc/nomad.d
 sudo chmod 0640 /etc/nomad.d/*
 
-sudo -i -u root bash << 'EOF'
+sudo -i -u root env SCRIPT_DIR=$SCRIPT_DIR bash << 'EOF'
 set -a
 source /etc/hashistack.env
 mkdir -p /opt/hashistack/nomad/data
-# nomad agent -$NOMAD_ROLE -config /etc/nomad.d/ -dc $CONSUL_DATACENTER $NOMAD_EXTRA_PARAM
+mkdir -p /opt/hashistack/nomad/data/plugins
+sudo cp -f $SCRIPT_DIR/../certs/containerd-driver /opt/hashistack/nomad/data/plugins/
+# nomad agent $NOMAD_ROLE -config /etc/nomad.d/ -dc $CONSUL_DATACENTER $NOMAD_EXTRA_PARAM
 EOF

@@ -9,7 +9,6 @@ client {
   }
 
   options {
-    "driver.allowlist" = "docker"
     "docker.volumes.enabled" = "false"
     "env.denylist" = "CONSUL_ENCRYPT_KEY,AZURE_CLIENT_SECRET"
     "user.denylist" = "root,ContainerAdministrator"
