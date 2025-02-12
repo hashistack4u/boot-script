@@ -24,6 +24,8 @@ passwd:
       primary_group: hashistack
       ssh_authorized_keys:
         - $sshKey
+    - name: coredns
+      primary_group: hashistack
     - name: consul
       primary_group: hashistack
     - name: nomad
@@ -104,6 +106,10 @@ storage:
           hash: sha256-$sysextVersionSHA256
   directories:
     - path: /opt/hashistack
+      mode: 0770
+      group:
+        name: hashistack
+    - path: /var/log/hashistack
       mode: 0770
       group:
         name: hashistack

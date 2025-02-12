@@ -1,0 +1,9 @@
+. {
+    log
+    errors
+    consul.:53 {
+        rewrite name regex ^([^.]+)\.([^.]+)\.(.+)$ $1-$2.$3
+        forward . 127.0.0.1:8600
+    }
+    forward . 8.8.8.8
+}

@@ -15,7 +15,7 @@ telemetry {
 }
 
 ports {
-  dns = 53
+  dns = 8600
   http = -1
   https = 8501
 }
