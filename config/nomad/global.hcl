@@ -15,12 +15,3 @@ telemetry {
   publish_node_metrics = true
   prometheus_metrics = true
 }
-
-plugin "docker" {
-  config {
-    allow_privileged = false
-    volumes {
-      enabled = false
-    }
-  }
-}

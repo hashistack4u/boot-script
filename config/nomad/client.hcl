@@ -9,7 +9,7 @@ client {
   }
 
   options {
-    "docker.volumes.enabled" = "false"
+    "driver.allowlist" = "containerd-driver"
     "env.denylist" = "CONSUL_ENCRYPT_KEY,AZURE_CLIENT_SECRET"
     "user.denylist" = "root,ContainerAdministrator"
   }
