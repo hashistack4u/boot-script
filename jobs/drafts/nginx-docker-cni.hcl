@@ -1,11 +1,9 @@
-# Job which registers service to Consul DNS and can be queried with:
-# dig @127.0.0.1 www.service.dc1.consul / dig @127.0.0.1 www.service.consul
+# Abandoned because needs installing and configuring CNI plugins
 job "nginx-test" {
   datacenters = ["dc1"]
   namespace   = "test"
 
   group "nginx-group" {
-
     network {
       mode   = "cni/bridge-no-nat"
       port "http" {}

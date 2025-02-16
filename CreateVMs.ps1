@@ -76,7 +76,9 @@ storage:
           DNS_DOMAIN_NAME=$dnsDomainName
           DNS_SERVER1=$dnsServer1
           DNS_SERVER2=$dnsServer2
+          NOMAD_ADDR=https://$IP:4646
           NOMAD_EXTRA_PARAM="-bind=$IP -meta=server=true"
+          NOMAD_SKIP_VERIFY=true
           NOMAD_ROLE="-server"
           VAULT_AZUREKEYVAULT_VAULT_NAME=$AzureVaultName
           VAULT_AZUREKEYVAULT_KEY_NAME=$AzureVaultKeyName

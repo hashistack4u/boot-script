@@ -1,10 +1,10 @@
+# Abandoned because needs installing and configuring containerd plugin
 job "redis" {
   datacenters = ["dc1"]
   namespace   = "test"
 
   group "redis-group" {
     network {
-      mode = "bridge"
       port "redis" {
         to = 6379
       }

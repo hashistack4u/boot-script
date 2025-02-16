@@ -1,6 +1,6 @@
 client {
   enabled = true
-  cni_path = "/usr/lib/cni"
+  cni_path = "C:\\Program Files\\containerd\\cni\\bin"
 
   drain_on_shutdown {
     deadline = "5m"
@@ -9,9 +9,9 @@ client {
   }
 
   options {
-    "driver.allowlist" = "containerd-driver,docker"
+    "driver.allowlist" = "docker"
     "env.denylist" = "CONSUL_ENCRYPT_KEY,AZURE_CLIENT_SECRET"
-    "user.denylist" = "root,ContainerAdministrator"
+    "user.denylist" = "ContainerAdministrator"
   }
 
   reserved {
