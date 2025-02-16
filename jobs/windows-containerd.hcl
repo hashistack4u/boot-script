@@ -7,10 +7,21 @@ job "win-test" {
   }
 
   group "win-group" {
+    network {
+      port "http" {
+        to = 8080
+      }
+    }
+
+    service {
+      name = "www"
+      port = "http"
+    }
+
     task "win-task" {
       driver = "containerd-driver"
       config {
-        image = "mcr.microsoft.com/dotnet/aspnet:9.0-nanoserver-ltsc2025"
+        image = "ollijanatuinen/aspnet-win2025:sample"
         hostname = "test"
       }
     }

@@ -5,7 +5,6 @@ job "nginx-test" {
   namespace   = "test"
 
   group "nginx-group" {
-
     network {
       mode   = "cni/bridge-no-nat"
       port "http" {}
