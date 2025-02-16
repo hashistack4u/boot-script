@@ -19,10 +19,11 @@ job "win-test" {
     }
 
     task "win-task" {
-      driver = "containerd-driver"
+      driver = "docker"
       config {
         image = "ollijanatuinen/aspnet-win2025:sample"
         hostname = "test"
+        isolation = "process"
       }
     }
   }
