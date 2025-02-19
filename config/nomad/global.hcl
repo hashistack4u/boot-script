@@ -1,4 +1,5 @@
 data_dir = "/opt/hashistack/nomad/data"
+disable_update_check = true
 
 tls {
   http = true
