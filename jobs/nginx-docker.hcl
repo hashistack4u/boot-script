@@ -21,6 +21,7 @@ job "nginx-test" {
       driver = "docker"
       config {
         image = "nginx:latest"
+        network_mode = "example"
       }
 
       service {
